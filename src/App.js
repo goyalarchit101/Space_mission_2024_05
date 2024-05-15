@@ -1,25 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import SpaceMissions from './SpaceMissions';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import FlightDeatils from './FlightDeatils';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <Navbar />
+        <div className="App container-fluid ">
+          <Routes>
+            <Route path="/" element={<SpaceMissions />} />
+            <Route path="/about" element={<Footer />} />
+            <Route path="/:flight_id" element={<FlightDeatils />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
 export default App;
+
+
+
+
+// jsx:  html + javascript
+// jsx should have only one parent
